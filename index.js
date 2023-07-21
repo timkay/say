@@ -83,7 +83,7 @@ if (typeof console.say !== 'function') {
 // If you provide an element with id `json_say_output`, then the output will be
 // appeneded there.
 
-if (typeof document !== undefined) {
+if (typeof document !== 'undefined') {
     console.elt = document.getElementById('console_say_output');
     if (console.elt && typeof say !== 'function') {
         window.say = (s, ...v) => {
