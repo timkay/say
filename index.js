@@ -93,6 +93,10 @@ if (typeof document !== 'undefined') {
     }
 }
 
+if (typeof exports !== 'undefined') {
+    exports.say = console.say;
+}
+
 
 
 
