@@ -60,9 +60,11 @@ if (typeof JSON.say !== 'function') {
             // An object with a single entry will display as key=value.
             // This way, a scalar variable can be displayed like ${{pi}},
             // resulting in pi=3.141592653589793
-            const u = Object.entries(v || {});
-            if (u.length === 1) {
-                return a + u[0][0] + '=' + JSON.safy(u[0][1]) + s[i+1];
+            if (typeof v === 'object') {
+                const u = Object.entries(v || {});
+                if (u.length === 1) {
+                    return a + u[0][0] + '=' + JSON.safy(u[0][1]) + s[i+1];
+                }
             }
             return a + JSON.safy(v) + s[i+1];
         }, s[0]);
