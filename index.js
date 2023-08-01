@@ -47,7 +47,20 @@ if (typeof JSON.safy !== 'function') {
 // will be displayed.
 
 if (typeof JSON.say !== 'function') {
+    JSON.say_topics_available ||= new Set();
+    JSON.say_topics_width = 0;
     JSON.say = function (s, ...v) {
+        if (s.length === 1 && !s[0]) return ''; // support "say ``" for a blank line
+        const file = (() => {
+            try {
+                throw new Error();
+            } catch (e) {
+                const parts = e.stack.split(/\r?\n/)?.[4].split(/\//);
+                const file = parts.slice(parts.length - 2).join('/').replace(/(.*):.*/, (_, a) => a);
+                JSON.say_files_width = Math.max(JSON.say_files_width || 0, file.length)
+                return file.padEnd(JSON.say_files_width);
+            }
+        })();
         if (typeof s === 'string' && s[0] === '>') {
             JSON.say_topics ||= new Set()
             s.split(/\W/).forEach(key => key && JSON.say_topics.add(key));
@@ -55,19 +68,34 @@ if (typeof JSON.say !== 'function') {
         }
         console.assert(Array.isArray(s), `JSON.say is a template literal function (do not use parentheses)`);
         const key = s[0].match(/^(\w+)> /)?.[1];
-        if (key && JSON.say_topics && !JSON.say_topics.has(key)) return;
-        return v.reduce((a, v, i) => {
-            // An object with a single entry will display as key=value.
-            // This way, a scalar variable can be displayed like ${{pi}},
-            // resulting in pi=3.141592653589793
+        if (key) {
+            const has = JSON.say_topics_available.has(key);
+            if (!has) {
+                JSON.say_topics_available.add(key);
+                JSON.say_topics_width = Math.max(0, ...[...(JSON.say_topics || JSON.say_topics_available).keys()].map(s => s.length));
+            }
+            if (JSON.say_topics && !JSON.say_topics.has(key)) return;
+        }
+        return file + ' ' + v.reduce((a, v, i) => {
+            if (v instanceof Error) {
+                return a + v.toString() + s[i+1];
+            }
             if (typeof v === 'object') {
+                console.log('classof', v.constructor.name);
+                if (v.constructor.name !== 'Object') {
+                    return v.toString();
+                }
+                // An object with a single entry will display as key=value.
+                // This way, a scalar variable can be displayed like ${{pi}},
+                // resulting in pi=3.141592653589793
                 const u = Object.entries(v || {});
                 if (u.length === 1) {
                     return a + u[0][0] + '=' + JSON.safy(u[0][1]) + s[i+1];
                 }
+                return a + v + s[i+1];
             }
             return a + JSON.safy(v) + s[i+1];
-        }, s[0]);
+        }, key && JSON.say_topics_width? (`${key}>`).padEnd(JSON.say_topics_width + 1) + s[0].substr(key.length + 1): s[0]);
     };
 }
 
