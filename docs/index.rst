@@ -34,10 +34,11 @@ JavaScript::
 
 Usage Examples:
 
-            const a = []
-            const b = []
-            b.push(b)
-            a.push(a, b, [a])
+    const a = []
+    const b = []
+    b.push(b)
+    a.push(a, b, [a])
+
             const pi = Math.PI
             say('>test')
             say `null=${null} ${{undefined}} ${{NaN}}`
