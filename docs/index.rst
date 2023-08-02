@@ -1,6 +1,5 @@
-===========
-@timkay/say
-===========
+Introduction to @timkay/say
+###########################
 
 .. image:: sayicon.png
   :width: 64
@@ -11,24 +10,62 @@ and debugging in JavaScript easier.
 
 **say** provides a concise way to generate lines of output that
 
-* Display the file name and line number of the code that generated the output,
-* Automatically converts objects to JSON using JSON.stringify,
+* Displays the file name and line number of the code that generated the output,
+* Displays objects as JSON,
 * Round numbers to 3 decimal places,
-* Conditioanlly outputs lines based on logging categories,
-* Intelligently handles Error objects
+* Intelligently handles Error objects,
+* When used with https://github.com/douglascrockford/JSON-js/blob/master/cycle.js, displays objects with cycles,
+* Conditionally outputs lines based on logging categories
 
-To get started, include say in your code.
+For more details, see :doc:`reference <reference>`.
 
-Browser::
+Getting Started
+===============
 
-`<script src="https://unpkg.com/@timkay/say"></script>`
+For the browser::
 
-Node::
+    <script src="https://unpkg.com/@timkay/say"></script>
 
-npm install
+For NodeJS:
 
-`npm install -g @timkay/say`
+Install::
 
-then
+    npm install -g @timkay/say
 
-`const {say} = require('@timkay/say')`
+JavaScript::
+
+    const {say} = require('@timkay/say')
+
+Usage Examples
+==============
+
+Code::
+
+    const a = []
+    const b = []
+    b.push(b)
+    a.push(a, b, [a])
+    const pi = Math.PI
+    say('>test')
+    say `null=${null} ${{undefined}} ${{NaN}}`
+    say `${{Infinity}} ${{NegativeInfinity: Number.NEGATIVE_INFINITY}}`
+    say `${42} ${'bob'} array ${[3, 4, 5]}, ${{x: 5}}, ${{hello: 'hello, world'}} ${{pi}}`
+    say `>>> ${{a}} <<<`
+    say `>>> ${window} <<<`
+    say `BigInt: ${BigInt(42)}`
+    say `array of object of object: ${[3, {a: {b: {c: 42}}}]}`
+    say `nonce> This is a conditional output`
+    say `test> This is a conditional output`
+    say `test> hello`
+
+Output::
+
+    demo.timkay.com/say.html:26 null=null undefined=undefined NaN=NaN
+    demo.timkay.com/say.html:27 Infinity=Infinity NegativeInfinity=-Infinity
+    demo.timkay.com/say.html:28 42 "bob" array 3,4,5, x=5, hello="hello, world" pi=3.142
+    demo.timkay.com/say.html:29 >>> a=[{"$ref":"$"},[{"$ref":"$[1]"}],[{"$ref":"$"}]] <<<
+    demo.timkay.com/say.html:30 >>> [object Window] <<<
+    demo.timkay.com/say.html:31 BigInt: 42n
+    demo.timkay.com/say.html:32 array of object of object: 3,[object Object]
+    demo.timkay.com/say.html:34 test> This is a conditional output
+    demo.timkay.com/say.html:35 test> hello

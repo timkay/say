@@ -60,7 +60,7 @@ if (typeof JSON.say !== 'function') {
             try {
                 throw new Error();
             } catch (e) {
-                const parts = e.stack.split(/\r?\n/)?.[4 + n].split(/\//);
+                const parts = e.stack.split(/\r?\n/)?.[5 + n].split(/\//);
                 const file = parts.slice(Math.max(0, parts.length - 2)).join('/').replace(/(.*):.*/, (_, a) => a);
                 JSON.say_files_width = Math.max(JSON.say_files_width || 0, file.length)
                 return file.padEnd(JSON.say_files_width);
@@ -88,7 +88,6 @@ if (typeof JSON.say !== 'function') {
                 if (u.length === 1) {
                     return a + u[0][0] + '=' + JSON.safy(u[0][1]) + s[i+1];
                 }
-                return a + v + s[i+1];
             }
             return a + JSON.safy(v) + s[i+1];
         }, key && JSON.say_topics_width? (`${key}>`).padEnd(JSON.say_topics_width + 1) + s[0].substr(key.length + 1): s[0]);
@@ -108,6 +107,9 @@ if (typeof JSON.say !== 'function') {
 }
 
 // console.say displays the output of JSON.say on the console.
+// The output includes the file and line where say was called.
+// say1, say2, and say3 display the file and line 1, 2, or 3
+// stack frames prior to the call to say.
 
 if (typeof console.say !== 'function') {
     console.say = function (s, ...v) {
