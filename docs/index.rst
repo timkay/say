@@ -6,15 +6,15 @@ Introduction to @timkay/say
   :height: 64
 
 ``say`` is a *template literal function* that makes logging
-and debugging in JavaScript easier.
+and debugging in JavaScript easier and better.
 
-``say`` provides a concise way to generate lines of output that
+``say`` provides a concise way to generate output that:
 
 * Displays the file name and line number of the code that generated the output,
 * Displays objects as JSON,
 * Rounds numbers to 3 decimal places,
 * Intelligently handles Error objects,
-* When used with https://github.com/douglascrockford/JSON-js/blob/master/cycle.js, displays objects with cycles,
+* Displays objects with cycles (when used with https://github.com/douglascrockford/JSON-js/blob/master/cycle.js),
 * Conditionally outputs lines based on logging categories
 
 For more details, see :doc:`reference <reference>`.
