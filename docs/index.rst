@@ -3,13 +3,17 @@
 ===========
 
 .. image:: sayicon.png
+  :width: 40
+  :height: 40
 
 **say** is a *template literal function* that makes logging and debugging easier.
 
 **say** provides a concise way to generate lines of output that
 
-* Contain the file name and line number of the code that generated the text,
-* Round numbers to 3 decimal places,
+* Display the file name and line number of the code that generated the output,
 * Automatically converts objects to JSON using JSON.stringify,
-* Conditioanlly outputs the lines based on logging categories,
-* 
+* Round numbers to 3 decimal places,
+* Conditioanlly outputs lines based on logging categories,
+* Intelligently handles Error objects
+
+To get started, include say in your code.
