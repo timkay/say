@@ -26,7 +26,7 @@ Browser::
 
 Node::
 
-    npm install -g @timkay/say
+npm install -g @timkay/say
 
 JavaScript::
 
