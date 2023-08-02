@@ -6,7 +6,8 @@
   :width: 40
   :height: 40
 
-**say** is a *template literal function* that makes logging and debugging easier.
+**say** is a JavaScript *template literal function* that makes logging
+and debugging easier.
 
 **say** provides a concise way to generate lines of output that
 
