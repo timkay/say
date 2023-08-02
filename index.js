@@ -60,7 +60,7 @@ if (typeof JSON.say !== 'function') {
             try {
                 throw new Error();
             } catch (e) {
-                const parts = e.stack.split(/\r?\n/)?.[5 + n].split(/\//);
+                const parts = e.stack.split(/\r?\n/)?.[4 + n].split(/\//);
                 const file = parts.slice(Math.max(0, parts.length - 2)).join('/').replace(/(.*):.*/, (_, a) => a);
                 JSON.say_files_width = Math.max(JSON.say_files_width || 0, file.length)
                 return file.padEnd(JSON.say_files_width);
@@ -93,16 +93,16 @@ if (typeof JSON.say !== 'function') {
         }, key && JSON.say_topics_width? (`${key}>`).padEnd(JSON.say_topics_width + 1) + s[0].substr(key.length + 1): s[0]);
     };
     JSON.say = function (s, ...v) {
-        return JSON.sayn(0, s, v);
-    }
-    JSON.say1 = function (s, ...v) {
         return JSON.sayn(1, s, v);
     }
-    JSON.say2 = function (s, ...v) {
+    JSON.say1 = function (s, ...v) {
         return JSON.sayn(2, s, v);
     }
-    JSON.say3 = function (s, ...v) {
+    JSON.say2 = function (s, ...v) {
         return JSON.sayn(3, s, v);
+    }
+    JSON.say3 = function (s, ...v) {
+        return JSON.sayn(4, s, v);
     }
 }
 
