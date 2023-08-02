@@ -31,9 +31,8 @@ Node::
 JavaScript::
 
     const {say} = require('@timkay/say')
-    const {say} = require('@timkay/say')
 
-Usage Examples:
+Usage Examples::
 
     const a = []
     const b = []
