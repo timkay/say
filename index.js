@@ -49,23 +49,23 @@ if (typeof JSON.safy !== 'function') {
 if (typeof JSON.say !== 'function') {
     JSON.say_topics_available ||= new Set();
     JSON.say_topics_width = 0;
-    JSON.say = function (s, ...v) {
-        if (s.length === 1 && !s[0]) return ''; // support "say ``" for a blank line
-        const file = (() => {
-            try {
-                throw new Error();
-            } catch (e) {
-                const parts = e.stack.split(/\r?\n/)?.[4].split(/\//);
-                const file = parts.slice(parts.length - 2).join('/').replace(/(.*):.*/, (_, a) => a);
-                JSON.say_files_width = Math.max(JSON.say_files_width || 0, file.length)
-                return file.padEnd(JSON.say_files_width);
-            }
-        })();
+    JSON.sayn = function (n, s, v) {
         if (typeof s === 'string' && s[0] === '>') {
             JSON.say_topics ||= new Set()
             s.split(/\W/).forEach(key => key && JSON.say_topics.add(key));
             return;
         }
+        if (s.length === 1 && s[0].length === 0) return ''; // support "say ``" for a blank line
+        const file = (() => {
+            try {
+                throw new Error();
+            } catch (e) {
+                const parts = e.stack.split(/\r?\n/)?.[4 + n].split(/\//);
+                const file = parts.slice(Math.max(0, parts.length - 2)).join('/').replace(/(.*):.*/, (_, a) => a);
+                JSON.say_files_width = Math.max(JSON.say_files_width || 0, file.length)
+                return file.padEnd(JSON.say_files_width);
+            }
+        })();
         console.assert(Array.isArray(s), `JSON.say is a template literal function (do not use parentheses)`);
         const key = s[0].match(/^(\w+)> /)?.[1];
         if (key) {
@@ -93,14 +93,38 @@ if (typeof JSON.say !== 'function') {
             return a + JSON.safy(v) + s[i+1];
         }, key && JSON.say_topics_width? (`${key}>`).padEnd(JSON.say_topics_width + 1) + s[0].substr(key.length + 1): s[0]);
     };
+    JSON.say = function (s, ...v) {
+        return JSON.sayn(0, s, v);
+    }
+    JSON.say1 = function (s, ...v) {
+        return JSON.sayn(1, s, v);
+    }
+    JSON.say2 = function (s, ...v) {
+        return JSON.sayn(2, s, v);
+    }
+    JSON.say3 = function (s, ...v) {
+        return JSON.sayn(3, s, v);
+    }
 }
 
 // console.say displays the output of JSON.say on the console.
 
 if (typeof console.say !== 'function') {
     console.say = function (s, ...v) {
-        const t = JSON.say(s, ...v);
-        if (typeof t === 'string') console.log(JSON.say(s, ...v));
+        const t = JSON.sayn(0, s, v);
+        if (typeof t === 'string') console.log(t);
+    };
+    console.say1 = function (s, ...v) {
+        const t = JSON.sayn(1, s, v);
+        if (typeof t === 'string') console.log(t);
+    };
+    console.say2 = function (s, ...v) {
+        const t = JSON.sayn(2, s, v);
+        if (typeof t === 'string') console.log(t);
+    };
+    console.say3 = function (s, ...v) {
+        const t = JSON.sayn(3, s, v);
+        if (typeof t === 'string') console.log(t);
     };
 }
 
@@ -121,6 +145,9 @@ if (typeof document !== 'undefined') {
 
 if (typeof exports !== 'undefined') {
     exports.say = console.say;
+    exports.say1 = console.say1;
+    exports.say2 = console.say2;
+    exports.say3 = console.say3;
 }
 
 
