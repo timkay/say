@@ -107,6 +107,9 @@ if (typeof JSON.say !== 'function') {
 }
 
 // console.say displays the output of JSON.say on the console.
+// The output includes the file and line where say was called.
+// say1, say2, and say3 display the file and line 1, 2, or 3
+// stack frames prior to the call to say.
 
 if (typeof console.say !== 'function') {
     console.say = function (s, ...v) {
