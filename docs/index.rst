@@ -31,3 +31,34 @@ Node::
 JavaScript::
 
     const {say} = require('@timkay/say')
+
+Usage Examples:
+
+            const a = []
+            const b = []
+            b.push(b)
+            a.push(a, b, [a])
+            const pi = Math.PI
+            say('>test')
+            say `null=${null} ${{undefined}} ${{NaN}}`
+            say `${{Infinity}} ${{NegativeInfinity: Number.NEGATIVE_INFINITY}}`
+            say `${42} ${'bob'} array ${[3, 4, 5]}, ${{x: 5}}, ${{hello: 'hello, world'}} ${{pi}}`
+            say `>>> ${{a}} <<<`
+            say `>>> ${window} <<<`
+            say `BigInt: ${BigInt(42)}`
+            say `array of object of object: ${[3, {a: {b: {c: 42}}}]}`
+            say `nonce> This is a conditional output`
+            say `test> This is a conditional output`
+            say `test> hello`
+
+Outputs:
+
+    demo.timkay.com/say.js:139 null=null undefined=undefined NaN=NaN
+    demo.timkay.com/say.js:139 Infinity=Infinity NegativeInfinity=-Infinity
+    demo.timkay.com/say.js:139 42 "bob" array [3,4,5], x=5, hello="hello, world" pi=3.142
+    demo.timkay.com/say.js:139 >>> a=[{"$ref":"$"},[{"$ref":"$[1]"}],[{"$ref":"$"}]] <<<
+    demo.timkay.com/say.js:139 >>> (Maximum call stack size exceeded) <<<
+    demo.timkay.com/say.js:139 BigInt: 42n
+    demo.timkay.com/say.js:139 array of object of object: [3,{"a":{"b":{"c":42}}}]
+    demo.timkay.com/say.js:139 test> This is a conditional output
+    demo.timkay.com/say.js:139 test> hello
