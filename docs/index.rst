@@ -1,5 +1,7 @@
 # @timkay/say
 
+.. image:: sayicon.png
+
 `say` is a *template literal function* that makes logging and debugging easier.
 
 `say` provides a concise way to generate lines of output that
