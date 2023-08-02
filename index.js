@@ -81,9 +81,6 @@ if (typeof JSON.say !== 'function') {
                 return a + v.toString() + s[i+1];
             }
             if (typeof v === 'object') {
-                if (v?.constructor?.name !== 'Object') {
-                    return v.toString();
-                }
                 // An object with a single entry will display as key=value.
                 // This way, a scalar variable can be displayed like ${{pi}},
                 // resulting in pi=3.141592653589793
