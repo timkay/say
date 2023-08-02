@@ -81,7 +81,7 @@ if (typeof JSON.say !== 'function') {
                 return a + v.toString() + s[i+1];
             }
             if (typeof v === 'object') {
-                if (v.constructor?.name !== 'Object') {
+                if (v?.constructor?.name !== 'Object') {
                     return v.toString();
                 }
                 // An object with a single entry will display as key=value.
