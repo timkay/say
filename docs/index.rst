@@ -1,5 +1,5 @@
 Introduction to @timkay/say
-===========================
+###########################
 
 .. image:: sayicon.png
   :width: 64
@@ -17,13 +17,18 @@ and debugging in JavaScript easier.
 * When used with https://github.com/douglascrockford/JSON-js/blob/master/cycle.js, displays objects with cycles,
 * Conditionally outputs lines based on logging categories
 
-For more details, see [Advanced Usage](usage.rst).
+For more details, see :doc:`reference <reference>`.
 
-To get started, include say in your code.
+Getting Started
+***************
+
+To get started, include say in your code. For browser apps:
 
 Browser::
 
     <script src="https://unpkg.com/@timkay/say"></script>
+
+For NodeJS:
 
 Node::
 
@@ -33,7 +38,10 @@ JavaScript::
 
     const {say} = require('@timkay/say')
 
-Usage Examples::
+Usage Examples
+**************
+
+Code::
 
     const a = []
     const b = []
@@ -52,7 +60,7 @@ Usage Examples::
     say `test> This is a conditional output`
     say `test> hello`
 
-Outputs::
+Output::
 
     demo.timkay.com/say.js:139 null=null undefined=undefined NaN=NaN
     demo.timkay.com/say.js:139 Infinity=Infinity NegativeInfinity=-Infinity
