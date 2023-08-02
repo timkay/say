@@ -19,4 +19,16 @@ and debugging in JavaScript easier.
 
 To get started, include say in your code.
 
+Browser::
+
 `<script src="https://unpkg.com/@timkay/say"></script>`
+
+Node::
+
+npm install
+
+`npm install -g @timkay/say`
+
+then
+
+`const {say} = require('@timkay/say')`
