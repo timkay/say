@@ -18,6 +18,8 @@ and debugging in JavaScript easier.
 * When used with https://github.com/douglascrockford/JSON-js/blob/master/cycle.js, displays objects with cycles,
 * Conditioanlly outputs lines based on logging categories
 
+For more details, see [Advanced Usage](usage.rst).
+
 To get started, include say in your code.
 
 Browser::
