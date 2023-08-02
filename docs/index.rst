@@ -1,6 +1,5 @@
-===========
-@timkay/say
-===========
+Introduction to @timkay/say
+===========================
 
 .. image:: sayicon.png
   :width: 64
@@ -16,7 +15,7 @@ and debugging in JavaScript easier.
 * Round numbers to 3 decimal places,
 * Intelligently handles Error objects,
 * When used with https://github.com/douglascrockford/JSON-js/blob/master/cycle.js, displays objects with cycles,
-* Conditioanlly outputs lines based on logging categories
+* Conditionally outputs lines based on logging categories
 
 For more details, see [Advanced Usage](usage.rst).
 
