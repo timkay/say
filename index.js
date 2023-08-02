@@ -60,7 +60,7 @@ if (typeof JSON.say !== 'function') {
             try {
                 throw new Error();
             } catch (e) {
-                const parts = e.stack.split(/\r?\n/)?.[4 + n].split(/\//);
+                const parts = e.stack.split(/\r?\n/)?.[5 + n].split(/\//);
                 const file = parts.slice(Math.max(0, parts.length - 2)).join('/').replace(/(.*):.*/, (_, a) => a);
                 JSON.say_files_width = Math.max(JSON.say_files_width || 0, file.length)
                 return file.padEnd(JSON.say_files_width);
