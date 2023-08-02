@@ -6,8 +6,8 @@
   :width: 64
   :height: 64
 
-**say** is a JavaScript *template literal function* that makes logging
-and debugging easier.
+**say** is a *template literal function* that makes logging
+and debugging in JavaScript easier.
 
 **say** provides a concise way to generate lines of output that
 
@@ -18,3 +18,5 @@ and debugging easier.
 * Intelligently handles Error objects
 
 To get started, include say in your code.
+
+`<script src="https://unpkg.com/@timkay/say"></script>`
