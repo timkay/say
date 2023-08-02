@@ -60,12 +60,12 @@ Code::
 
 Output::
 
-    demo.timkay.com/say.js:139 null=null undefined=undefined NaN=NaN
-    demo.timkay.com/say.js:139 Infinity=Infinity NegativeInfinity=-Infinity
-    demo.timkay.com/say.js:139 42 "bob" array [3,4,5], x=5, hello="hello, world" pi=3.142
-    demo.timkay.com/say.js:139 >>> a=[{"$ref":"$"},[{"$ref":"$[1]"}],[{"$ref":"$"}]] <<<
-    demo.timkay.com/say.js:139 >>> (Maximum call stack size exceeded) <<<
-    demo.timkay.com/say.js:139 BigInt: 42n
-    demo.timkay.com/say.js:139 array of object of object: [3,{"a":{"b":{"c":42}}}]
-    demo.timkay.com/say.js:139 test> This is a conditional output
-    demo.timkay.com/say.js:139 test> hello
+    demo.timkay.com/say.html:26 null=null undefined=undefined NaN=NaN
+    demo.timkay.com/say.html:27 Infinity=Infinity NegativeInfinity=-Infinity
+    demo.timkay.com/say.html:28 42 "bob" array 3,4,5, x=5, hello="hello, world" pi=3.142
+    demo.timkay.com/say.html:29 >>> a=[{"$ref":"$"},[{"$ref":"$[1]"}],[{"$ref":"$"}]] <<<
+    demo.timkay.com/say.html:30 >>> [object Window] <<<
+    demo.timkay.com/say.html:31 BigInt: 42n
+    demo.timkay.com/say.html:32 array of object of object: 3,[object Object]
+    demo.timkay.com/say.html:34 test> This is a conditional output
+    demo.timkay.com/say.html:35 test> hello
