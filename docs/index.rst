@@ -12,23 +12,21 @@ and debugging in JavaScript easier.
 **say** provides a concise way to generate lines of output that
 
 * Display the file name and line number of the code that generated the output,
-* Automatically converts objects to JSON using JSON.stringify,
+* Displays objects as JSON,
 * Round numbers to 3 decimal places,
-* Conditioanlly outputs lines based on logging categories,
 * Intelligently handles Error objects
+* Conditioanlly outputs lines based on logging categories,
 
 To get started, include say in your code.
 
 Browser::
 
-`<script src="https://unpkg.com/@timkay/say"></script>`
+<script src="https://unpkg.com/@timkay/say"></script>
 
 Node::
 
-npm install
+npm install -g @timkay/say
 
-`npm install -g @timkay/say`
+::
 
-then
-
-`const {say} = require('@timkay/say')`
+const {say} = require('@timkay/say')
