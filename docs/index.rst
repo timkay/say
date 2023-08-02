@@ -20,17 +20,15 @@ and debugging in JavaScript easier.
 For more details, see :doc:`reference <reference>`.
 
 Getting Started
-***************
+===============
 
-To get started, include say in your code. For browser apps:
-
-Browser::
+For the browser::
 
     <script src="https://unpkg.com/@timkay/say"></script>
 
 For NodeJS:
 
-Node::
+Install::
 
     npm install -g @timkay/say
 
@@ -39,7 +37,7 @@ JavaScript::
     const {say} = require('@timkay/say')
 
 Usage Examples
-**************
+==============
 
 Code::
 
