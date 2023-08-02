@@ -88,7 +88,6 @@ if (typeof JSON.say !== 'function') {
                 if (u.length === 1) {
                     return a + u[0][0] + '=' + JSON.safy(u[0][1]) + s[i+1];
                 }
-                return a + v + s[i+1];
             }
             return a + JSON.safy(v) + s[i+1];
         }, key && JSON.say_topics_width? (`${key}>`).padEnd(JSON.say_topics_width + 1) + s[0].substr(key.length + 1): s[0]);
