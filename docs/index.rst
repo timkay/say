@@ -3,8 +3,8 @@
 ===========
 
 .. image:: sayicon.png
-  :width: 40
-  :height: 40
+  :width: 64
+  :height: 64
 
 **say** is a JavaScript *template literal function* that makes logging
 and debugging easier.
