@@ -1,5 +1,6 @@
 Introduction to @timkay/say
 ###########################
+Copyright 2023 Tim Kay
 
 .. image:: sayicon.png
   :width: 64
