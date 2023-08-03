@@ -190,11 +190,12 @@ print statements are deleted. Of course, should an issue arise, the developer ha
 more print statements.
 
 A better way is to use *conditional* print statements, where each print statement is tagged
-with a category. The developer can then turn on print a selection of print statements by
+with a category. The developer can then turn on a selection of print statements by
 specifying a selection of categories.
 
 ``say`` supports conditional output by optionally tagging each line with a category.
-Lines that begin with a token, a greater than sign, and a space, such as ``foo>`` (followed by a space), become members of the indicated category (in this case, ``foo``).
+Lines that begin with a token, a greater than sign, and a space, such as ``foo>`` (followed by a space),
+become members of the indicated category (in this case, ``foo``).
 
 Example::
 
