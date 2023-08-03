@@ -204,7 +204,8 @@ By default, all lines and all categories will display. The function call::
 
     say('>list of categories`)
 
-will activate the indicated listed categories, and all other categories will be silent.
+will activate the indicated categories, and all other categories will be silent.
+(Yes, the same function ``say`` does this second thing when called as a regular function.)
 
 Example::
 
