@@ -1,7 +1,7 @@
 Reference
 #########
 
-File:line Output
+File\:line Output
 ----------------
 
 ``say`` displays the file name and line number of the code that called ``say``,
