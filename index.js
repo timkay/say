@@ -9,7 +9,7 @@ if (typeof JSON.replacer !== 'function') {
         if (v === Infinity) return {$val: 'Infinity'};
         if (v === -Infinity) return {$val: '-Infinity'};
         if (Number.isFinite(v)) {
-            if (JSON.trailing_zeros) return v.toFixed(3);
+            if (console.say.trailing_zeros) return {$val: v.toFixed(3)};
             return Math.round(v * 1e3) / 1e3;
         }
         return v;
@@ -78,7 +78,9 @@ if (typeof JSON.say !== 'function') {
         }
         return file + ' ' + v.reduce((a, v, i) => {
             if (v instanceof Error) {
-                return a + v.toString() + s[i+1];
+                const parts = (v.stack.split(/\r?\n/)[1]).split(/\//);
+                const file = parts.slice(Math.max(0, parts.length - 2)).join('/').replace(/(.*):.*/, (_, a) => a);
+                return a + file + ' ' + v.toString() + s[i+1];
             }
             if (typeof v === 'object') {
                 // An object with a single entry will display as key=value.
