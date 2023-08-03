@@ -41,34 +41,26 @@ Usage Examples
 
 Code::
 
-    const a = []
-    const b = []
-    b.push(b)
-    a.push(a, b, [a])
     const pi = Math.PI
     say('>test')
-    say `null=${null} ${{undefined}} ${{NaN}}`
-    say `${{Infinity}} ${{NegativeInfinity: Number.NEGATIVE_INFINITY}}`
     say `${42} ${'bob'} array ${[3, 4, 5]}, ${{x: 5}}, ${{hello: 'hello, world'}} ${{pi}}`
-    say `>>> ${{a}} <<<`
-    say `>>> ${window} <<<`
     say `BigInt: ${BigInt(42)}`
     say `array of object of object: ${[3, {a: {b: {c: 42}}}]}`
+    say `null=${null} ${{undefined}} ${{NaN}}`
+    say `${{Infinity}} ${{NegativeInfinity: Number.NEGATIVE_INFINITY}}`
     say `nonce> This is a conditional output`
     say `test> This is a conditional output`
     say `test> hello`
 
 Output::
 
-    demo.timkay.com/say.html:26 null=null undefined=undefined NaN=NaN
-    demo.timkay.com/say.html:27 Infinity=Infinity NegativeInfinity=-Infinity
-    demo.timkay.com/say.html:28 42 "bob" array 3,4,5, x=5, hello="hello, world" pi=3.142
-    demo.timkay.com/say.html:29 >>> a=[{"$ref":"$"},[{"$ref":"$[1]"}],[{"$ref":"$"}]] <<<
-    demo.timkay.com/say.html:30 >>> [object Window] <<<
-    demo.timkay.com/say.html:31 BigInt: 42n
-    demo.timkay.com/say.html:32 array of object of object: 3,[object Object]
-    demo.timkay.com/say.html:34 test> This is a conditional output
-    demo.timkay.com/say.html:35 test> hello
+    examples/demo.js:8 42 "bob" array [3,4,5], x=5, hello="hello, world" pi=3.142
+    examples/demo.js:9 BigInt: 42n
+    examples/demo.js:10 array of object of object: [3,{"a":{"b":{"c":42}}}]
+    examples/demo.js:11 null=null undefined=undefined NaN=NaN
+    examples/demo.js:12 Infinity=Infinity NegativeInfinity=-Infinity
+    examples/demo.js:14 test> This is a conditional output
+    examples/demo.js:15 test> hello
 
 How does it work?
 =================
