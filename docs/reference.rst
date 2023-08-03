@@ -152,4 +152,55 @@ produces::
 Conditional Logging
 -------------------
 
-TBD
+A popular debugging technique is to add "print" statements to your code. As the code runs,
+the print statements show a trace of the execution. Then, when the debugging is done, the
+print statements are deleted. Of course, should an issue arise, the developer has to add
+more print statements.
+
+A better way is to use *conditional* print statements, where each print statement is tagged
+with a category. The developer can then turn on print a selection of print statements by
+specifying a selection of categories.
+
+``say`` supports conditional output by optionally tagging each line with a category.
+Lines that begin with a token, a greater than sign, and a space, such as ``foo> ``,
+become members of the indicated category, in this example, the ``foo`` category.
+
+Example::
+
+    say `debug> This line will show when category "debug" is enabled`
+
+By default, all lines and all categories will display. The function call::
+
+    say('>list of categories`)
+
+will activate the indicated listed categories, and all other categories will be silent.
+
+Example::
+
+    say('>debug mysql notify`)
+
+turns on categories ``debug``, ``mysql``, and ``notify``. All other categories will be silent (will not display).
+
+Example::
+
+    say('>debug mysql notify`)
+    say `debug> ${{i}}`
+    say `I don't have a category.`
+    say `startup> connecting to storage`
+    say `mysql> connecting to database`
+
+produces::
+
+    examples/demo.js:72 debug>  i=7
+    examples/demo.js:73 I don't have a category.
+    examples/demo.js:74 mysql>  connecting to database
+
+The ``startup> connecting to storage`` line does not display because the ``startup`` category is not active.
+The ``I don't have a category.`` line does display because it has no category, and lines with no category
+always display.
+
+
+
+
+
+
