@@ -15,6 +15,37 @@ produces::
 
     example/demo.js:4 Hello, world!
 
+Name and Value
+-------------------------
+
+``say`` can display both the name and value of a variable.
+
+Example::
+
+    say `keys and values: helix=${helix} klein=${klein}`
+
+produces::
+
+    examples/demo.js:38 keys and values: helix=79.000 klein="bottle"
+
+To produce this result, you have to type the variable name twice: ``foo=${foo}``.
+``say`` provides a better way. If you use ``${{foo}}``, then ``say`` will
+insert both the name and value into the result.
+
+Example::
+
+    say `keys and values: ${{helix}} ${{klein}}`
+
+produces::
+
+    examples/demo.js:39 keys and values: helix=79.000 klein="bottle"
+
+How does it work? The expression ``{foo}`` creates an object ``{"foo": foo}``,
+which is then inserted by the template literal. ``say`` treats objects with a single key
+specially and displayes them this way. The following section :ref:`JSON Output` how ``say``
+displays objects. If you intend to display an object as a JSON string, and the object
+contains only one key, then you will see the display with the equal sign, not as JSON.
+
 JSON Output
 -----------
 
