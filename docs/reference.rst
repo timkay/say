@@ -62,6 +62,38 @@ produces::
 
     example/demo.js:7 person: {"first": "Tim", "last": "Kay"}
 
+``say`` can easily display the name and value of multiple variables with this mechanism.
+
+Example::
+    
+    const brill = 'x^2'
+    const s = 4
+    say `sunday ${{brill, s}}`
+
+produces::
+
+    examples/demo.js:30 sunday {"brill":"x^2","s":4}
+
+Depending on your preference, it might be better to use separate insertions.
+
+Example::
+
+    say `sunday ${{brill}}, ${{s}}`
+
+produces::
+
+    examples/demo.js:31 sunday brill="x^2", s=4
+
+Arrays also display a list of values conveniently.
+
+Example::
+
+    say `(using an array) ${[brill, s]}`
+
+produces::
+
+    examples/demo.js:32 (using an array) ["x^2",4]
+
 Sometimes the object has circular references, and ``JSON.stringify()`` throws an error.
 ``say`` handles this condition more gracefull. See :ref:`Circular References`.
 
