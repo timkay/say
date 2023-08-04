@@ -1,9 +1,9 @@
 Integration
 ###########
 
-By default, `say` displays output to one of two places:
+By default, ``say`` displays output to one of two places:
 
-1. In a browser, if an element with id `console_say_output` exists, then the output is appended to that element.
+1. In a browser, if an element with id ``console_say_output`` exists, then the output is appended to that element.
 2. Otherwise, the output is displayed on the console.
     * browser: displayed in the browser console
     * nodejs: displayed to stdout
