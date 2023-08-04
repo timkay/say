@@ -16,6 +16,7 @@ and debugging in JavaScript easier and better.
 * Rounds numbers to 3 decimal places,
 * Intelligently handles Error objects,
 * Displays objects with cycles (when used with https://github.com/douglascrockford/JSON-js/blob/master/cycle.js),
+* Displays ``BigInt`` (and other types) inside objects, where ``JSON.stringify`` fails,
 * Conditionally outputs lines based on logging categories
 * Can be tightly integrated into your application (see :doc:`integration <integration>`)
 
