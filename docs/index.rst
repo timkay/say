@@ -17,6 +17,7 @@ and debugging in JavaScript easier and better.
 * Intelligently handles Error objects,
 * Displays objects with cycles (when used with https://github.com/douglascrockford/JSON-js/blob/master/cycle.js),
 * Conditionally outputs lines based on logging categories
+* Can be tightly integrated into your application (see the :doc:`integration <integration>` topic)
 
 For more details, see :doc:`reference <reference>`.
 
