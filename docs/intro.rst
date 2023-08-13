@@ -85,7 +85,7 @@ A template literal function is a function that acts on a template literal. It is
 When a function precedes a template literal, the function by that name is called on to
 generate the resulting string, using whatever mechansim is coded in the template literal function.
 (The template literal function processes the template literal in place of the
-default, built in, template literal function.)
+built in template literal function.)
 ``say`` is designed to be a generally useful template literal function, that makes
 it easy to produce output for debugging and logging purposes.
 
