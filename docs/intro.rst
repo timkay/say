@@ -89,8 +89,8 @@ built in template literal function.)
 ``say`` is designed to be a generally useful template literal function, that makes
 it easy to produce output for debugging and logging purposes.
 
-In this example, ``say`` will produce the similar output as before and display it on
-the console, without the need for an explicit call ``console.log()``::
+The above example will produce the similar output as the previous ``console.log()`` call (and display the result on
+the console, without the need for an explicit call to ``console.log()``)::
 
     example/ans.js:4 The answer to life,the universe,and everything is 42!!
 
