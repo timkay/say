@@ -61,8 +61,8 @@ Output::
     examples/demo.js:14 test> This is a conditional output
     examples/demo.js:15 test> hello
 
-How does it work?
-=================
+How It Works
+============
 
 Later versions of JavaScript support *template literals*,
 which are a new style string literal that uses backward apostrophes. The strings have
