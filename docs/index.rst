@@ -2,6 +2,11 @@ Introduction to @timkay/say
 ###########################
 Copyright 2023 Tim Kay
 
+.. toctree::
+    index
+    reference
+    integration
+
 .. image:: sayicon.png
   :width: 64
   :height: 64
