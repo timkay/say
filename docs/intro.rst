@@ -1,5 +1,5 @@
-Introduction to @timkay/say
-###########################
+Introduction
+############
 Copyright 2023 Tim Kay
 
 ``say`` is a *template literal function* that makes logging
