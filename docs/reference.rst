@@ -42,8 +42,8 @@ produces::
 
 How does it work? The expression ``{foo}`` creates an object ``{"foo": foo}``,
 which is then inserted by the template literal. ``say`` treats objects with a single key
-specially and displays them this way. The following section :ref:`JSON Output` how ``say``
-displays objects. If you intend to display an object as a JSON string, and the object
+specially and displays them this way. This special treatment can lead to unexpected
+results: If you want to display an object as a JSON string, and the object
 contains only one key, then you will see the display with the equal sign, not as JSON.
 
 JSON Output
