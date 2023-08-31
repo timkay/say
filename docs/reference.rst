@@ -42,8 +42,8 @@ produces::
 
 How does it work? The expression ``{foo}`` creates an object ``{"foo": foo}``,
 which is then inserted by the template literal. ``say`` treats objects with a single key
-specially and displayes them this way. The following section :ref:`JSON Output` how ``say``
-displays objects. If you intend to display an object as a JSON string, and the object
+specially and displays them this way. This special treatment can lead to unexpected
+results: If you want to display an object as a JSON string, and the object
 contains only one key, then you will see the display with the equal sign, not as JSON.
 
 JSON Output
@@ -190,11 +190,12 @@ print statements are deleted. Of course, should an issue arise, the developer ha
 more print statements.
 
 A better way is to use *conditional* print statements, where each print statement is tagged
-with a category. The developer can then turn on print a selection of print statements by
+with a category. The developer can then turn on a selection of print statements by
 specifying a selection of categories.
 
 ``say`` supports conditional output by optionally tagging each line with a category.
-Lines that begin with a token, a greater than sign, and a space, such as ``foo>`` (followed by a space), become members of the indicated category (in this case, ``foo``).
+Lines that begin with a token, a greater than sign, and a space, such as ``foo>`` (followed by a space),
+become members of the indicated category (in this case, ``foo``).
 
 Example::
 
@@ -204,7 +205,8 @@ By default, all lines and all categories will display. The function call::
 
     say('>list of categories`)
 
-will activate the indicated listed categories, and all other categories will be silent.
+will activate the indicated categories, and all other categories will be silent.
+(Yes, the same function ``say`` does this second thing when called as a regular function.)
 
 Example::
 
