@@ -4,9 +4,10 @@ const {say} = require('@timkay/say')
 say ``
 
 const pi = Math.PI
+const bi = 42n
 say('>test')
 say `${42} ${'bob'} array ${[3, 4, 5]}, ${{x: 5}}, ${{hello: 'hello, world'}} ${{pi}}`
-say `BigInt: ${BigInt(42)}`
+say `BigInts: ${BigInt(42)} ${bi} ${{bi, pi}}`
 say `array of object of object: ${[3, {a: {b: {c: 42}}}]}`
 say `null=${null} ${{undefined}} ${{NaN}}`
 say `${{Infinity}} ${{NegativeInfinity: Number.NEGATIVE_INFINITY}}`
@@ -81,3 +82,25 @@ say `debug> ${{i}}`
 say `I don't have a category.`
 say `startup> connecting to storage`
 say `mysql> connecting to database`
+
+say ``
+
+function output(s, ...v) {
+    const text = JSON.say(s, ...v);
+    console.log('formatted:', text);
+}
+
+output `6 * 7 = ${6 * 7}`;
+
+say ``
+
+function output(s, ...v) {
+    const text = JSON.say1(s, ...v);
+    console.log('formatted:', text);
+}
+
+function outer(s, ...v) {
+    output(s, ...v);
+}
+
+outer `6 * 7 = ${6 * 7}`;

@@ -138,11 +138,11 @@ if (typeof console.say !== 'function') {
 // appeneded there.
 
 if (typeof document !== 'undefined') {
-    console.elt = document.getElementById('console_say_output');
-    if (console.elt && typeof say !== 'function') {
+    const elt = document.getElementById('console_say_output');
+    if (elt && typeof say !== 'function') {
         window.say = (s, ...v) => {
             const t = JSON.say(s, ...v);
-            if (typeof t === 'string') console.elt.innerText += t + '\n';
+            if (typeof t === 'string') elt.innerText += t + '\n';
         };
     }
 }
