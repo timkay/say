@@ -9,7 +9,7 @@ if (typeof JSON.replacer !== 'function') {
         if (v === Infinity) return {$val: 'Infinity'};
         if (v === -Infinity) return {$val: '-Infinity'};
         if (Number.isFinite(v)) {
-            if (console.say?.trailing_zeros) return {$val: v.toFixed(3)};
+            if (console.say.trailing_zeros) return {$val: v.toFixed(3)};
             return Math.round(v * 1e3) / 1e3;
         }
         return v;
@@ -145,25 +145,20 @@ if (typeof console.say !== 'function') {
 
 if (typeof document !== 'undefined') {
     if (!('say' in window)) {
-        document.onreadystatechange = () => {
-            console.log('readyState', document.readyState)
-            if (document.readyState === "interactive") {
-                const elt = document.getElementById('console_say_output');
-                if (elt) {
-                    window.say = (s, ...v) => {
-                        const t = JSON.say(s, ...v);
-                        if (typeof t === 'string') {
-                            const [_, line, rest] = t.match(/^(.*?)\s(.*)$/s);
-                            elt.innerHTML += `<span title="${line}">${rest}</span>\n`;
-                        }
-                    };
-                } else {
-                    window.say = (s, ...v) => {
-                        const t = JSON.say(s, ...v);
-                        if (typeof t === 'string') console.log(t.replace(/^.*?\s/, ''));
-                    };
+        const elt = document.getElementById('console_say_output');
+        if (elt) {
+            window.say = (s, ...v) => {
+                const t = JSON.say(s, ...v);
+                if (typeof t === 'string') {
+                    const [_, line, rest] = t.match(/^(.*?)\s(.*)$/s);
+                    elt.innerHTML += `<span title="${line}">${rest}</span>\n`;
                 }
-            }
+            };
+        } else {
+            window.say = (s, ...v) => {
+                const t = JSON.say(s, ...v);
+                if (typeof t === 'string') console.log(t.replace(/^.*?\s/, ''));
+            };
         }
     }
 }
