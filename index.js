@@ -9,7 +9,7 @@ if (typeof JSON.replacer !== 'function') {
         if (v === Infinity) return {$val: 'Infinity'};
         if (v === -Infinity) return {$val: '-Infinity'};
         if (Number.isFinite(v)) {
-            if (console.say.trailing_zeros) return {$val: v.toFixed(3)};
+            if (console.say?.trailing_zeros) return {$val: v.toFixed(3)};
             return Math.round(v * 1e3) / 1e3;
         }
         return v;
