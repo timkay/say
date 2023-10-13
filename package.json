@@ -1,6 +1,6 @@
 {
   "name": "@timkay/say",
-  "version": "0.1.15",
+  "version": "0.1.16",
   "description": "Conditional logging for JavaScript",
   "main": "index.js",
   "scripts": {
