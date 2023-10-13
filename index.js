@@ -150,7 +150,7 @@ if (typeof document !== 'undefined') {
             window.say = (s, ...v) => {
                 const t = JSON.say(s, ...v);
                 if (typeof t === 'string') {
-                    const [_, line, rest] = t.match(/^(.*?)\s(.*)$/);
+                    const [_, line, rest] = t.match(/^(.*?)\s(.*)$/s);
                     elt.innerHTML += `<span title="${line}">${rest}</span>\n`;
                 }
             };
