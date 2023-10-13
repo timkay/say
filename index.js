@@ -157,13 +157,13 @@ if (typeof document !== 'undefined') {
                             elt.innerHTML += `<span title="${line}">${rest}</span>\n`;
                         }
                     };
+                } else {
+                    window.say = (s, ...v) => {
+                        const t = JSON.say(s, ...v);
+                        if (typeof t === 'string') console.log(t.replace(/^.*?\s/, ''));
+                    };
                 }
             }
-        } else {
-            window.say = (s, ...v) => {
-                const t = JSON.say(s, ...v);
-                if (typeof t === 'string') console.log(t.replace(/^.*?\s/, ''));
-            };
         }
     }
 }
