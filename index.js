@@ -145,15 +145,19 @@ if (typeof console.say !== 'function') {
 
 if (typeof document !== 'undefined') {
     if (!('say' in window)) {
-        const elt = document.getElementById('console_say_output');
-        if (elt) {
-            window.say = (s, ...v) => {
-                const t = JSON.say(s, ...v);
-                if (typeof t === 'string') {
-                    const [_, line, rest] = t.match(/^(.*?)\s(.*)$/s);
-                    elt.innerHTML += `<span title="${line}">${rest}</span>\n`;
+        document.onreadystatechange = () => {
+            if (document.readyState === "interactive") {
+                const elt = document.getElementById('console_say_output');
+                if (elt) {
+                    window.say = (s, ...v) => {
+                        const t = JSON.say(s, ...v);
+                        if (typeof t === 'string') {
+                            const [_, line, rest] = t.match(/^(.*?)\s(.*)$/s);
+                            elt.innerHTML += `<span title="${line}">${rest}</span>\n`;
+                        }
+                    };
                 }
-            };
+            }
         } else {
             window.say = (s, ...v) => {
                 const t = JSON.say(s, ...v);
