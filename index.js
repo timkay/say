@@ -70,7 +70,6 @@ if (typeof JSON.say !== 'function') {
                 return file.padEnd(JSON.say_files_width);
             }
         })();
-        console.assert(Array.isArray(s), `JSON.say is a template literal function (do not use parentheses)`);
         const key = s[0].match(/^(\w+)> /)?.[1];
         if (key) {
             const has = JSON.say_topics_available.has(key);
@@ -94,6 +93,9 @@ if (typeof JSON.say !== 'function') {
                 if (u.length === 1) {
                     return a + u[0][0] + '=' + JSON.safy(u[0][1]) + s[i+1];
                 }
+            }
+            if (typeof v === 'string') {
+                return a + v + s[i+1];
             }
             return a + JSON.safy(v) + s[i+1];
         }, key && JSON.say_topics_width? (`${key}>`).padEnd(JSON.say_topics_width + 1) + s[0].substr(key.length + 1): s[0]);
