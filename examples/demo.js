@@ -87,20 +87,20 @@ say ``
 
 function output(s, ...v) {
     const text = JSON.say(s, ...v);
-    console.log('formatted:', text);
+    console.log('math 1:', text);
 }
 
 output `6 * 7 = ${6 * 7}`;
 
 say ``
 
-function output(s, ...v) {
+function output1(s, ...v) {
     const text = JSON.say1(s, ...v);
-    console.log('formatted:', text);
+    console.log('math 2:', text);
 }
 
 function outer(s, ...v) {
-    output(s, ...v);
+    output1(s, ...v);
 }
 
 outer `6 * 7 = ${6 * 7}`;

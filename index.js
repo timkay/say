@@ -50,10 +50,14 @@ if (typeof JSON.say !== 'function') {
     JSON.say_topics_available ||= new Set();
     JSON.say_topics_width = 0;
     JSON.sayn = function (n, s, v) {
-        if (typeof s === 'string' && s[0] === '>') {
-            JSON.say_topics ||= new Set()
-            s.split(/\W/).forEach(key => key && JSON.say_topics.add(key));
-            return;
+        if (typeof s === 'string') {
+            if (s[0] === '>') {
+                JSON.say_topics ||= new Set()
+                s.split(/\W/).forEach(key => key && JSON.say_topics.add(key));
+                return;
+            }
+            // call as say('Hello, world!')
+            [s, v] = [[s], []];
         }
         if (s.length === 1 && s[0].length === 0) return ''; // support "say ``" for a blank line
         const file = (() => {
@@ -138,12 +142,21 @@ if (typeof console.say !== 'function') {
 // appeneded there.
 
 if (typeof document !== 'undefined') {
-    const elt = document.getElementById('console_say_output');
-    if (elt && typeof say !== 'function') {
-        window.say = (s, ...v) => {
-            const t = JSON.say(s, ...v);
-            if (typeof t === 'string') elt.innerText += t + '\n';
-        };
+    if (!('say' in window)) {
+        if (elt) {
+            window.say = (s, ...v) => {
+                const t = JSON.say(s, ...v);
+                if (typeof t === 'string') {
+                    const [_, line, rest] = t.match(/^(.*?)\s(.*)$/);
+                    elt.innerHTML += `<span title="${line}">${rest}</span>\n`;
+                }
+            };
+        } else {
+            window.say = (s, ...v) => {
+                const t = JSON.say(s, ...v);
+                if (typeof t === 'string') console.log(t.replace(/^.*?\s/, ''));
+            };
+        }
     }
 }
 
