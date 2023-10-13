@@ -146,6 +146,7 @@ if (typeof console.say !== 'function') {
 if (typeof document !== 'undefined') {
     if (!('say' in window)) {
         document.onreadystatechange = () => {
+            console.log('readyState', document.readyState)
             if (document.readyState === "interactive") {
                 const elt = document.getElementById('console_say_output');
                 if (elt) {
