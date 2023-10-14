@@ -151,8 +151,8 @@ if (typeof document !== 'undefined') {
                 const t = JSON.say(s, ...v);
                 if (typeof t === 'string') {
                     const [_, line, rest] = t.match(/^(.*?)\s(.*)$/s);
-                    rest = rest.replace(/</g, '&lt;')
-                    elt.innerHTML += `<span title="${line}">${rest}</span>\n`;
+                    const quoted = rest.replace(/</g, '&lt;')
+                    elt.innerHTML += `<span title="${line}">${quoted}</span>\n`;
                 }
             };
         } else {
