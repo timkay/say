@@ -85,7 +85,15 @@ if (typeof JSON.say !== 'function') {
                 const file = parts.slice(Math.max(0, parts.length - 2)).join('/').replace(/(.*):.*/, (_, a) => a);
                 return a + file + ' ' + v.toString() + s[i+1];
             }
-            if (typeof v === 'object') {
+            if (Array.isArray(v)) {
+                // defer to JSON.safy below
+            } else if (v instanceof Set) {
+                a += 'Set'
+                v = [...v.keys()]
+            } else if (v instanceof Map) {
+                a += 'Map'
+                v = Object.fromEntries(v)
+            } else if (typeof v === 'object') {
                 // An object with a single entry will display as key=value.
                 // This way, a scalar variable can be displayed like ${{pi}},
                 // resulting in pi=3.141592653589793
